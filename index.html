@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bookmark Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Bookmark Manager</h1>
+    <p class="subtitle">Save once, access anytime</p>
+    <p class="quote" id="quote"></p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="box">
+      <h2 id="total">0</h2>
+      <p>Total</p>
+    </div>
+    <div class="box">
+      <h2 id="fav">0</h2>
+      <p>Favorites</p>
+    </div>
+    <div class="box">
+      <h2 id="today">0</h2>
+      <p>Added Today</p>
+    </div>
+  </div>
+
+  <!-- ADD -->
+  <div class="card">
+    <h3>Add Bookmark</h3>
+    <div class="input-group">
+      <input type="text" id="title" placeholder="Website name">
+      <input type="text" id="url" placeholder="Website URL">
+      <button onclick="addBookmark()">Save</button>
+    </div>
+
+    <input type="text" id="search" placeholder="Search bookmarks..." onkeyup="searchBookmark()" class="search">
+  </div>
+
+  <!-- LIST -->
+  <div class="card">
+    <h3>Saved Bookmarks</h3>
+    <div id="bookmarkList"></div>
+  </div>
+
+</div>
+
+<!-- EXIT BUTTON -->
+<button class="exit-btn" onclick="openFeedback()">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" width="20">
+</button>
+
+<!-- FEEDBACK POPUP -->
+<div id="feedbackPopup" class="popup">
+  <div class="popup-content">
+    <h3>Why are you leaving?</h3>
+
+    <div class="feedback-options">
+      <button onclick="submitFeedback('Not useful')">Not Useful</button>
+      <button onclick="submitFeedback('Too complex')">Too Complex</button>
+      <button onclick="submitFeedback('Just browsing')">Just Browsing</button>
+      <button onclick="submitFeedback('Will come later')">Come Later</button>
+    </div>
+
+    <textarea id="customFeedback" placeholder="Write your reason..."></textarea>
+
+    <br><br>
+    <button onclick="submitCustomFeedback()">Submit</button>
+    <button onclick="closeFeedback()" class="close">Close</button>
+  </div>
+</div>
+
+<!-- MESSAGE POPUP -->
+<div id="messageBox" class="message-box"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
